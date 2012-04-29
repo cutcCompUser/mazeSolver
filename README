@@ -1,0 +1,22 @@
+This is the bootstrap Java HTTP server.
+
+Prepare your environment by running
+	$ mvn clean install
+
+Then, start the server by running
+	$ foreman start
+
+The server will echo back any data sent to it by a POST request. To test it, try the following:
+	$ curl -d 'Hello, world!' http://localhost:5000/echo
+
+To deploy to heroku, first log in.
+	$ heroku auth:login
+
+Then, create the app (make sure you do this in the root directory of the project)
+	$ heroku apps:create --stack cedar
+
+Now, deploy it!
+	$ git push heroku master
+
+You can test it with curl. Your app will have a unique name. Ours is called falling-dawn-4647
+	$ curl -d 'hi' http://falling-dawn-4647.herokuapp.com/echo
